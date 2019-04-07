@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+  <head>
+ 
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js">  </script>
+
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+	rrbackgroundimage{
+
+  background: url(img/old.png);
+  height: 90vh;
+  width: 150%;
+  background-size: cover;
+ display: table;
+ background-attachment: fixed;
+
+}
+.rrtextinsidebackground{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.rrtextinsidebackground p{
+  text-align: center;
+  border:8px;
+  border-style:solid;
+   border-color:blue;
+   padding-top: 80px;
+    height: 10em;
+    width: 45em;
+
+}
+
+
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+.new {
+  padding: 50px;
+}
+
+.form-group {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.form-group input {
+  padding: 0;
+  height: initial;
+  width: initial;
+  margin-bottom: 0;
+  display: none;
+  cursor: pointer;
+}
+
+.form-group label {
+  position: relative;
+  cursor: pointer;
+}
+
+.form-group label:before {
+  content:'';
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 2px solid black;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.form-group input:checked + label:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 9px;
+  left: 45px;
+  width: 7px;
+  height: 15px;
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+
+.mos {
+position:relative;
+right:40%;
+   padding:15px;
+  font-style: oblique;
+  font-weight: lighter;
+  /* text-align: center; */
+
+}
+.card .imageer{
+  width: 15em;
+  height: 15em;
+ margin-left:20px;
+ margin-right:100px;
+}
+#label11{
+  position:absolute;
+  top:2250px;
+  left:1110px;
+  font-size:23px;
+  font-weight:500;
+  color:#000080;
+}
+#label22
+{
+  position:absolute;
+  top:2250px;
+  left:680px;
+  font-size:23px;
+  font-weight:500;
+  color:#000080
+}
+#label33
+{
+  position:absolute;
+  top:2250px;
+  left:250px;
+  font-size:23px;
+  font-weight:500;
+  color:#000080
+}
+.boxs11{
+width:400px;
+height:650px;
+ position:absolute;
+  left:750px;
+justify-content: space-between;
+  margin-bottom: 60px;
+  margin-top: 60px;
+   border: 3px solid #66b3ff;
+   
+
+}
+.boxs22{
+width:400px;
+height:650px;
+ position:absolute;
+ left:95px;
+ justify-content: space-between;
+  margin-bottom: 60px;
+  margin-top: 60px;
+   border: 3px solid #66b3ff;
+   
+
+}
+.boxs11,.boxs22   p{
+font-size:25px;
+color:#85C1E9;
+padding:20px;
+text-align:center;}
+.boxs111,.boxs222   p{
+font-size:25px;
+color:#85C1E9;
+padding:20px;
+text-align:center;}
+
+
+.boxs111{
+display: flex;
+width:400px;
+height:650px;
+ position:absolute;
+  left:750px;
+   top:3300px;
+justify-content: space-between;
+  margin-bottom: 60px;
+  margin-top: 60px;
+   border: 3px solid #66b3ff;
+   
+
+ 
+}
+  
+.boxs222{
+width:400px;
+height:650px;
+ position:absolute;
+  left:95px;
+   top:3300px;
+justify-content: space-between;
+  margin-bottom: 60px;
+  margin-top: 60px;
+   border: 3px solid #66b3ff;
+   
+
+}
+a svg,
+a svg rect
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  height: 100%;
+  fill: transparent;
+
+
+}
+a svg rect{
+  stroke: #80b3ff;
+  stroke-width: 4;
+  transition: 1s;
+  stroke-dasharray: 180, 60;
+}
+a :hover svg rect{
+stroke-dasharray: 60,180;
+stroke-dashoffset: 330; 
+}
+	</style>
+</head>
+
+  <body>
+    <!--nenu-->        
+<header>
+    <div>
+          <nav>
+		  <div class="login">
+	       <a href="singin.html" target="_blank"><img class="login" src="login1.png" alt="login" width="15px" height="20px" ></a>
+		   </div>
+		  
+		  <img class="logo" src="logo.jpg" alt="kaianlogo"  width="70px" height="60x"> 
+		   
+	        <ul>
+            <li><a href="home.html">الصفحة الرئيسية</a>  
+            <li><a href="#">الكفالة</a>
+			<ul>
+			<li><a  href="#">كفالة يتيم</a></li>
+			<li><a  href="#">  كفالة ارملة واسرة</a></li> 
+			</ul>
+			</li>   
+            <li><a href="#">الأوقاف</a>
+			<ul>
+			 <li><a href="#">وقف مسجد</a></li>
+			 <li><a href="#"> وقف بئر</a></li>
+			</ul>
+			</li>
+			<li><a href="#">دار عجزه </a></li> 
+                      </ul>
+                  </nav>
+              </div>
+		</header>
+        <!--text-->
+        <div class="Ltext">
+      
+ 
+
+ 
+
+            <div class="rrbackgroundimage">
+
+              <div class="textinsidebackground">
+
+ 
+
+<p>لتكن اليد الحانيه وتذهب لزيارتهم فانت لا تعلم مدى حاجتهم لهذه الزياره</p>
+            </div>
+
+            </div>
+
+ 
+
+ 
+
+            <section class="content1">
+<!-- <hr> -->
+ 
+
+            <div class="text">
+
+              <p> اسعدهم وادخل عليهم البسمة</p>
+
+          <label> <p> اختر دار العجزه الذي تود الذهاب اليه :  </p>
+<p dir="rtl" >
+<select name="chose" style="width: 40%">
+  
+    <option  select required >  مركز رعاية المسنين - بريده - </option>
+<option>                  مركز رعاية المسنين -الرس -  </option>
+<option>           مركز رعاية المسنين -البكيريه  -</option>
+
+<option>                 مركز رعاية المسنين - عنيزه - </option>
+ 
+
+</select></label></p> 
+<p dir="rtl"><label> <p> الاوقات المتاحه :  </p>
+<p  dir="rtl" > <select style="width:40%" name "rating" >
+
+<option select required > من الساعة 9:00 الى الساعة 11:00 صباحاً</option>
+<option>                 من الساعة 4:30 الى الساعة 6:00 مساءاً  </option>
+</select></label></p> 
+</p>
+
+
+<p dir ="rtl"> الشروط :
+ <div class="mos">
+<label>
+
+
+<ol>
+ <li>   عدم ادخال الاطعمه الا بموافقة الاداره .    </li>         
+
+<li>  عدم احضار الاطفال .   </li> 
+
+<li> عدم الحضور  قبل نهاية الزياره ب15 دقيقه .  </li>  
+
+<li>  لايسمح خروج كبار السن خارج الدار الابموافة الاداره .    </li>  
+</ol>
+<br>
+</label></p>
+
+
+
+
+<div class="form-group">
+      <input type="checkbox" id="css" required>
+      <label for="css">قبول</label>
+    </div>
+    
+  </form></div>
+<div class="" onclick="po()">
+    
+
+    <svg>
+
+    </svg><center>
+      <input name="submit" type="submit" value="ارسل الطلب">
+<script>
+function po(){
+swal({
+  title: "تم قبول طلبك",
+  text: "شكرا لمساهمتك معنا.",
+  icon: "success",
+  button: "موافق",
+});
+}
+ 
+    </script> 
+          </div>
+  </form></center>
+  <br>
+
+
+</div>
+        <!-- <hr> -->
+</label>
+            </section>
+
+            <div class="card">
+<hr>
+              <p> كيف يمكنني مساعدتهم؟ <br> يمكنك مساعدتهم بـ :</p>
+<br>
+           <span>
+
+          <img class="imageer "src="img/hi.png" width ="30" height = "30"  alt="">
+
+          <img class="imageer"src="img/sm.png"  width ="30" height = "30" alt=""> 
+
+          <img class="imageer"src="img/sp.png"  width ="30" height = "30" alt="">
+
+                                  </span>
+
+                                  <span>
+
+                                  <label id ="label11">   خدمتهم  </label>
+
+                                  <label id ="label22">  اسعادهم  </label>
+
+                                  <label id="label33">  تقديم لهم الهدايا  </label>
+
+                                  </span>
+
+        </div>
+
+ 
+ <br> <br> <br> <br>
+            <div class="card">
+
+   <hr>          
+ <p>معلومات عن الدار</p>
+
+
+               </div>
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+  
+
+   <div  class="boxs11">
+
+    <p>
+بريدة<br>
+            رجال<br>
+    
+مدير الفرع :احمد<br>
+  عدد الموظفين:50 موظف<br>
+  رقم التواصل للفرع: 13388555<br>
+  الوصف: جوار نوفمبيك<br>
+  نساء <br>
+  مديرة الفرع:فاطمة<br>
+    عدد الموظفات : 45 موظفة<br>
+  رقم التواصل للفرع: 1339999<br>
+    الوصف: جوار نوفمبيك<br>
+  </p>
+
+</div>
+
+ 
+
+ 
+
+      <div  class="boxs22">
+
+    <p>
+عنيزة<br>
+            رجال<br>
+    
+مدير الفرع :فهد<br>
+  عدد الموظفين:70 موظف<br>
+  رقم التواصل للفرع: 133000555<br>
+        الوصف: بجوار العثيم<br>
+
+  نساء <br>
+  مديرة الفرع:سارة<br>
+    عدد الموظفات : 35 موظفة<br>
+  رقم التواصل للفرع: 1377799<br>
+   الوصف: بجوار العثيم<br>
+  </p>
+
+ 
+</div>
+ 
+   <div  class="boxs111" >
+
+    <p>
+البكيريه <br>
+رجال  <br>
+    
+مدير الفرع :عبد الرحمن احمد <br>
+عدد الموظفين : 30 موظف <br>
+رقم التواصل للفرع: 133880111<br>
+   الوصف : بجوار اسواق العثيم <br>
+
+  نساء <br>
+مديره الفرع : شريفه علي <br>
+    عدد الموظفات : 35 موظفة<br>
+  رقم التواصل للفرع: 1377799<br>
+   الوصف : بجوار اسواق العثيم <br>
+  </p>
+
+</div>
+               
+
+    <div  class="boxs222">
+
+    <p>
+الرس<br>
+            رجال<br>
+    
+مدير الفرع :وليد فهد<br>
+  عدد الموظفين : 35 موظف<br>
+  رقم التواصل للفرع: 1338123<br>
+   الوصف :  بجوار فندق بودل<br>
+  نساء <br>
+مديره الفرع : شريفه علي<br>
+    عدد الموظفات :35 موظفه<br>
+  رقم التواصل للفرع: 13381111<br>
+   الوصف : بجوار فندق بودل<br>
+  </p>
+
+</div>
+  </body>
+
+</html>
+

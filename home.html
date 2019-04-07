@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+ <html lang="ar" dir="rtl"> 
+    <head>
+       <title> الصفحة الرئيسية</title>
+           <meta charset="utf-8">
+           <link rel="stylesheet" href="h.css">
+		   <link rel="icon" href="logo.jpg"/>
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css"> <!--slider -->
+           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  <!--حق الاسئلة الشائعة -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">  <!--حق لبوكس الازرق-->
+           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">    <!--حق لبوكس الازرق-->
+ 
+<style>
+    html, body {  
+     position: relative;
+     height: 100%;
+    }
+	
+ </style>
+</head>
+<body>
+<!--nenu--> 
+      <header>
+	   <div>
+          <nav>
+		  <div class="login">
+	       <a href="singin.html" target="_blank"><img class="login" src="login1.png" alt="login" width="15px" height="20px" ></a>
+		   </div>
+		  <img class="logo" src="logo.jpg" alt="kaianlogo"  width="40px" height="40xp"> 
+	        <ul>
+            <li><a href="home.html">الصفحة الرئيسية</a>  
+            <li><a href="ll.html">الكفالة</a>
+			<ul>
+			<li><a  href="#">كفالة يتيم</a></li>
+			<li><a  href="#">  كفالة ارملة واسرة</a></li> 
+			</ul>
+			</li>   
+            <li><a href="raa.html">الأوقاف</a>
+			<ul>
+			 <li><a href="ra11.html"> وقف بئر</a></li>
+			 <li><a href="ra22.html">وقف مسجد</a></li>
+			</ul>
+			</li>
+			<li><a href="#">دار عجزه </a></li> 
+                      </ul>
+                  </nav>
+              </div>
+		</header>
+
+              
+  <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" style="background-image:url(w3.jpg)"></div>
+      <div class="swiper-slide" style="background-image:url(img/op1.jpg)"></div>
+      <div class="swiper-slide" style="background-image:url(img/p1.jpg)"></div>
+      <div class="swiper-slide" style="background-image:url(img/2.jpg)"></div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination swiper-pagination-white"></div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next swiper-button-white"></div>
+    <div class="swiper-button-prev swiper-button-white"></div>
+  </div>
+
+  <!-- Swiper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      spaceBetween: 30,
+      effect: 'fade',
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+ </div>
+<!--.......................................content.........................................................-->
+<div class="homecontent">
+     <h2>من نحن</h2>
+           <hr>
+             <p> 
+			 حمعية خيرية تسعى لتحقيق الحياة الكريمة لذوي الحاجة  فنساعدهم على تجاوز مرحلة الحاجة إلى مرحلة الاكتفاء أو الإنتاج من 
+			 من خلال تعامل إنساني بفريق عمل محترف يسعى لرضا الرحمن في ظل التواصل المستمر مع أهل البر والإحسان
+		     </p>
+             <hr>
+        </div>
+ <!--...................................................map.............................................................-->
+ 
+        <h2 id ="h_center">بفضل الله ودعمكم ساهمنا في عدة بلاد</h2>
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/topojson.v0.min.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script>
+
+            var cities=[
+              { "lat":-9.13, "lon":39.31},
+              {"lat":15.68, "lon":120.76},
+              {"lat":15.01, "lon":77.38},
+              { "lat":19.75, "lon":74.48},
+              { "lat":29.01, "lon":77.38},
+              {"lat":-3.01, "lon":103.75},
+              { "lat":-10.01, "lon":20.1},
+              {"lat":33.01, "lon":68.24},
+              {"lat":29.01, "lon":70.4},
+              { "lat":-25.01, "lon":28.36},
+              {"lat":-19.01, "lon":45.33},
+              { "lat":-25.01, "lon":18.1275}
+            ];
+
+
+
+            var width = 1100,
+                height = 300;
+
+            var projection = d3.geo.mercator()
+                .center([50, 10]) //long and lat starting position
+                .scale(150) //starting zoom position
+                .rotate([10,0]); //where world split occurs
+
+            var svg = d3.select("body").append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+            var path = d3.geo.path()
+                .projection(projection);
+
+            var g = svg.append("g");
+
+            // load and display the world and locations
+            d3.json("https://gist.githubusercontent.com/d3noob/5193723/raw/world-110m2.json", function(error, topology) {
+
+            var world = g.selectAll("path")
+            				.data(topojson.object(topology, topology.objects.countries).geometries)
+            				.enter()
+            				.append("path")
+            				.attr("d", path)
+
+
+            // add city location circles
+            var locations = g.selectAll("circle")
+            			       .data(cities)
+            			       .enter()
+            			       .append("circle")
+            			       .attr("cx", function(d) {return projection([d.lon, d.lat])[0];})
+            			       .attr("cy", function(d) {return projection([d.lon, d.lat])[1];})
+            			       .attr("r", 5)
+            			       .style("fill", "black")
+            			       .style("opacity", 0.6)
+            			       ;
+                         div.style.paddingTop="50px";
+            });
+
+
+
+            //zoom and pan functionality
+            var zoom = d3.behavior.zoom()
+                .on("zoom",function() {
+                    g.attr("transform","translate("+
+                        d3.event.translate.join(",")+")scale("+d3.event.scale+")");
+                    g.selectAll("path")
+                        .attr("d", path.projection(projection));
+              });
+            svg.call(zoom);
+
+            </script>
+
+<!--.................................................اساله شائعه...................................................-->
+        <div class="FAQ">
+		<h3 id="h_color"> الاسئلة الشائعة</h3>
+        <dl class="dl-faq pab_container">
+          <dt data-pab=faq_1><span>كيف أتواصل مع الجمعية</span></dt>
+          <dd id=faq_1>
+            <div>
+              <p>يمكن التواصل معنا عن طريق البريد الألكتروني </p>
+              <p>kaian_@hotmail.com</p>
+            </div>
+          </dd>
+
+
+          <!-- adding data-pab-expand will force section open by default -->
+          <dt data-pab=faq_2  data-pab-expand><span>كيف أستطيع المساعده؟</span></dt>
+          <dd id=faq_2>
+            <div>
+              <p>يستطيع الجميع المساعده وتقديم يد العون عن طريق التبرع المادي أو العيني أو كفالة احد الأيتام أو أحدى الأسر ممن قامت الجمعية بالبحث عن حالتهم والتأكد من حاجتهم لأبسط متطلبات الحياة من غذاء وكساء</p>
+            </div>
+          </dd>
+
+
+          <dt data-pab=faq_3><span>متى تصرف مستحقات الأيتام؟</span></dt>
+          <dd id=faq_3>
+            <div>
+              <p>تصرف مبالغ الأيتام شهريا وبالتحديد في اليوم الثامن من كل شهر</p>
+            </div>
+          </dd>
+
+          <dt id=q_4 data-pab=faq_4><span>متى تأسست الجمعية؟</span></dt>
+          <dd id=faq_4>
+            <div>
+              <p>تأسستت عام 1435 هـ</p>
+            </div>
+          </dd>
+
+          <dt data-pab=faq_5><span>هل لديكم مشاريع خارج الدولة...وماهي؟</span></dt>
+          <dd id=faq_5>
+            <div>
+              <p>نعم لدينا.</p>
+              <p>تنفذ جمعية كيان الخيرية مشاريع انشائية بالتنسيق مع مؤسسات خيرية آخرى ..</p>
+              <p>وتتمثل هذه المشاريع في بناء المساجد وحفر آبار وكفالة يتيم وأسره.</p>
+            </div>
+          </dd>
+
+        </dl>
+        <br>
+        <svg style="display:none">
+            <defs>
+              <symbol viewBox="0 0 38 38" id="icon-plus">
+                <path class="icon-plus-v" d="M10.5 19l17 0"></path>
+                <path class="icon-plus-h" d="M19 10.5l0 17"></path>
+              </symbol>
+
+              <symbol viewBox="0 0 38 38" id="icon-minus">
+                <path class="icon-plus-v" d="M10.5 19l17 0"></path>
+              </symbol>
+
+              <symbol viewBox="0 0 38 38" id="icon-vert">
+                <path d="M19 10.5l0 17"></path>
+              </symbol>
+              <symbol viewBox="0 0 38 38" id="icon-hori">
+                <path d="M10.5 19l17 0"></path>
+              </symbol>
+
+            </defs>
+          </svg>
+        </div>
+        <script type="text/javascript">
+        var debounce = function(func, wait, immediate) {
+
+        "use strict";
+
+        var timeout;
+        return function() {
+        var context = this;
+        var args = arguments;
+        var later = function() {
+          timeout = null;
+          if ( !immediate ) {
+            func.apply(context, args);
+          }
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait || 200);
+        if ( callNow ) {
+          func.apply(context, args);
+        }
+        };
+        };
+
+
+        var Pab = (function (window, document, debounce) {
+
+        "use strict";
+
+        var dataAttr = "data-pab";
+        var attrName = dataAttr.replace("data-", "") + "_";
+        var btnClass = dataAttr.replace("data-", "") + "-btn";
+        var dataExpandAttr = dataAttr + "-expand";
+        var internalId = 1;
+
+
+        function $ (selector) {
+        return Array.prototype.slice.call(document.querySelectorAll(selector));
+        }
+
+
+        function _isExpanded (obj) {
+        return obj && (obj.getAttribute("aria-expanded") === "true" || obj.getAttribute("aria-hidden") === "false");
+        }
+
+        var _getHiddenObjectHeight = function (obj) {
+        obj.setAttribute("style", "max-height: none");
+        var height = obj.scrollHeight;
+        obj.removeAttribute("style");
+        return height;
+        };
+
+        var _openCloseToggleTarget = function (toggle, target, isExpanded) {
+        toggle.setAttribute("aria-expanded", !isExpanded);
+        _setToggleMaxHeight(target);
+        window.requestAnimationFrame(function(){
+          target.setAttribute("aria-hidden", isExpanded);
+        });
+        };
+
+
+        var _setToggleMaxHeight = function (target) {
+        if (_isExpanded(target)) {
+        } else {
+          target.style.maxHeight = _getHiddenObjectHeight(target) + "px";
+        }
+        };
+
+        var _toggleClicked = function (event) {
+
+        var toggle = event.target;
+        var target;
+        var isExpanded;
+
+        if (toggle) {
+
+          event.stopPropagation();
+
+          target = document.getElementById(toggle.getAttribute("aria-controls"));
+          if (target) {
+            isExpanded = _isExpanded(toggle);
+            _openCloseToggleTarget(toggle, target, isExpanded);
+          }
+        }
+        };
+
+
+        var _addToggleListeners = function (toggle) {
+        toggle.addEventListener("click", _toggleClicked, false);
+
+        };
+
+
+        var _setUpToggle = function (toggle) {
+
+        var btn = document.createElement("button");
+
+        btn.className = btnClass;
+        btn.innerHTML = toggle.innerHTML;
+        btn.setAttribute("aria-expanded", false);
+        btn.setAttribute("id", attrName + internalId++);
+        btn.setAttribute("aria-controls", toggle.getAttribute(dataAttr));
+
+        toggle.innerHTML = "";
+        toggle.appendChild(btn);
+
+        return btn;
+        };
+
+        var _setUpToggleParent = function (toggle) {
+        var parent = toggle.parentElement;
+        if (parent && !parent.className.match(attrName + "container")) {
+          parent.className += " " + attrName + "container";
+        }
+        };
+
+
+        var _addToggleSVG = function (toggle) {
+        var clone = toggle.cloneNode(true);
+        if (!clone.innerHTML.match("svg")) {
+
+          clone.innerHTML += "<svg role=presentational focusable=false class=" + dataAttr.replace("data-", "") + "-svg-plus><use class=\"use-plus\" xlink:href=\"#icon-vert\" /><use xlink:href=\"#icon-hori\"/></svg>";
+            toggle.parentElement.replaceChild(clone, toggle);
+
+        }
+        return clone;
+        };
+
+
+        var _setUpTargetAria = function (toggle, target) {
+        target.setAttribute("aria-hidden", !_isExpanded(toggle));
+        target.setAttribute("aria-labelledby", toggle.id);
+        };
+
+
+        var _resetAllTargetsMaxHeight = function () {
+        var toggles = document.querySelectorAll("[" + dataAttr + "]");
+        var i = toggles.length;
+        var target;
+        while (i--) {
+          target = document.getElementById(toggles[i].getAttribute(dataAttr));
+          if (target) {
+            target.style.maxHeight = _getHiddenObjectHeight(target) + "px";
+          }
+        }
+        };
+
+
+        var isMustardCut = function () {
+        return (document.querySelectorAll && document.addEventListener);
+        };
+
+
+        var _openIfRequired = function (toggle, target) {
+
+        var fragmentId = window.location.hash.replace("#", "");
+
+        if (toggle.parentElement.hasAttribute(dataExpandAttr)) {
+          setTimeout(function () {
+            _openCloseToggleTarget(toggle, target, _isExpanded(toggle));
+          }, 500);
+        }
+
+
+        if (target.id === fragmentId) {
+          setTimeout(function () {
+            _openCloseToggleTarget(toggle, target, false);
+            toggle.focus();
+          }, 500);
+        }
+
+        };
+
+
+        var addSingleToggleTarget = function (toggleParent) {
+
+        var targetId = toggleParent.getAttribute(dataAttr);
+        var target = document.getElementById(targetId);
+        var toggle;
+
+        if (target && isMustardCut) {
+          toggle = _setUpToggle(toggleParent);
+          _setUpToggleParent(toggleParent);
+          toggle = _addToggleSVG(toggle);
+          _setUpTargetAria(toggle, target);
+          _addToggleListeners(toggle);
+          _openIfRequired(toggle, target);
+        }
+        };
+
+        var hashChanged = function (e) {
+        var fragmentId = window.location.hash.replace("#", "");
+        var toggle = document.querySelector("#" + fragmentId + " > ." + btnClass);
+        var target = document.getElementById(toggle.getAttribute("aria-controls"));
+        if (!toggle || !target) {return false;}
+
+        toggle.focus();
+        toggle.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+
+        _openCloseToggleTarget(toggle, target, false);
+        };
+
+
+        var addToggles = function () {
+
+        var togglesMap = $("[" + dataAttr + "]").reduce(function (temp, toggleParent) {
+          addSingleToggleTarget(toggleParent);
+          return true;
+        }, {});
+
+        return true;
+        };
+
+
+        if (isMustardCut) {
+        window.addEventListener("load", addToggles, false);
+
+        window.addEventListener("resize", debounce(_resetAllTargetsMaxHeight, 500), false);
+
+        window.addEventListener("hashchange", hashChanged, false);
+        }
+
+
+        return {
+        add: addSingleToggleTarget
+        };
+
+
+        }(window, document, debounce));
+
+
+        </script>
+        <!--.............................................................team......................................................-->
+        <div class="container" dir="ltr">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8">
+                    <div id="testimonial-slider" class="owl-carousel">
+                        <div class="testimonial">
+                            <div class="pic">
+                                <img src="https://static.pexels.com/photos/529928/pexels-photo-529928.jpeg">
+                            </div>
+                            <div class="testimonial-content" dir="rtl">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet eum excepturi incidunt
+                                    laudantium nesciunt omnis, provident repudiandae rerum sed! Amet blanditiis eaque eu!
+                                </p>
+                            </div>
+                            <h3 class="testimonial-title" dir="rtl">
+                              <p>روان الشارخ</p>
+                                <small>- رئيسة مجلس الاداره</small>
+                            </h3>
+                        </div>
+
+                        <div class="testimonial">
+                            <div class="pic">
+                                <img src="https://static.pexels.com/photos/529928/pexels-photo-529928.jpeg">
+                            </div>
+                            <div class="testimonial-content" dir="rtl">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet eum excepturi incidunt
+                                    laudantium nesciunt omnis, provident repudiandae rerum sed! Amet blanditiis eaque eu
+                                </p>
+                            </div>
+                            <h3 class="testimonial-title" dir="rtl">
+                                <p>رهف المطيري</p>
+                                <small>- نائبة رئيسة مجلس الاداره</small>
+                            </h3>
+                        </div>
+
+                        <div class="testimonial">
+                            <div class="pic">
+                                <img src="https://static.pexels.com/photos/529928/pexels-photo-529928.jpeg">
+                            </div>
+                            <div class="testimonial-content" dir="rtl">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet eum excepturi incidunt
+                                    laudantium nesciunt omnis, provident repudiandae rerum sed! Amet blanditiis eaque eum
+                                    odit repellendus!
+                                </p>
+                            </div>
+                            <h3 class="testimonial-title" dir="rtl">
+                                <p>لمياء العطالله</p>
+                                <small>- المشرفه الماليه</small>
+                            </h3>
+                        </div>
+                        <div class="testimonial">
+                            <div class="pic">
+                                <img src="https://static.pexels.com/photos/529928/pexels-photo-529928.jpeg">
+                            </div>
+                            <div class="testimonial-content" dir="rtl">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet eum excepturi incidunt
+                                    laudantium nesciunt omnis, provident repudiandae rerum sed! Amet blanditiis eaque eum
+                                    odit repellendus!
+                                </p>
+                            </div>
+                            <h3 class="testimonial-title" dir="rtl">
+                                <p>ريما المحميد</p>
+                                <small>- الأمينه العامه</small>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('#testimonial-slider').owlCarousel({
+                    items:1,
+                    itemsDesktop:[1000,1],
+                    itemsDesktopSmall:[979,1],
+                    itemsTablet:[768,1],
+                    pagination: false,
+                    navigation:true,
+                    navigationText:["",""],
+                    slideSpeed:1000,
+                    autoPlay:true
+                });
+            });
+      </script>
+      <div class="footer-main">
+          <div class="footer-inner">
+            <div class="footer-left" style="color:#333333        ;">
+               <div class="footer-img">
+                 <img src="logo2.jpg" alt="log">
+                   <p>كيان هي جمعيه خيريه غير ربحيه</p>
+                  </div> 
+                </div>
+                  <div class="footer-left">
+                 <div class="footer-box">
+                 <h6>الصفحه الرئسيه</h6>
+             </div>
+
+        <div class="footer-box">
+          <h6>اوقاف</h6>
+          <ul>
+            <li> <a href="#">وقف مساجد</a> </li>
+              <li> <a href="#">وقف آبار</a> </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-left">
+        <div class="footer-box">
+          <h6>الكفاله</h6>
+          <ul>
+            <li> <a href="#">كفاله يتيم</a> </li>
+              <li> <a href="#">كفاله اسره وأرمله</a> </li>
+          </ul>
+        </div>
+        <div class="footer-box">
+          <h6>طلب زيارة لدار المسنين</h6>
+        </div>
+      </div>
+      <div class="footer-left">
+        <div class="footer-box" style=" color:#333333    ;">
+          <h6>للتواصل</h6>
+        <ul>
+          <li> kaian@hotmail.com </li>
+            <li> 05555555555555 </li>
+          <li>66666666 </li>
+        </ul>
+        </div>
+      </div>
+      <div class="clr">
+      </div>
+      </div>
+        </div>
+
+
+  </body>
+</html>
